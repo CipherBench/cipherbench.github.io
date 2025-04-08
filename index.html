@@ -76,7 +76,7 @@
     </ul>
     <hr>
     <h2>Methodology</h2>
-    <p>Each model was evaluated on 20 unique prompts. Five independent runs per prompt → 100 runs per model.</p>
+    <p>Each model was evaluated on 20 unique prompts. 5 independent runs per prompt → 100 runs per model.</p>
     <ul>
       <li>Initiated in fresh sessions</li>
       <li>Given only the prompt with no examples, no setup, and no hint that decoding was expected</li>
@@ -124,14 +124,15 @@
 
   <section>
     <h2>Limitations</h2>
-    <p>Each prompt was only tested 5 times per model. While 5 attempts per prompt provides a meaningful signal, it still leaves room for statistical noise. A larger sample size might better capture performance variance, especially for models prone to randomness or inconsistency.</p>
-    <p>All models were tested through web or app interfaces, not APIs. This decision allowed uniform access across providers but also introduced variables like system prompts, latency behavior, and UI-level token processing. However, because all models were tested under their respective consumer-facing environments, this also acts as a practical equalizer, reflecting how each model performs as a product rather than a fine-tuned API tool.</p>
-    <p>Model responses may be affected by invisible system prompts or instructions. Since web/app interfaces include proprietary guardrails and formatting logic, some models may have been biased toward safe defaults or disallowed certain interpretations. These effects were outside the control of the benchmark but are a factor in how models behaved.</p>
-    <p>Tokenization behavior (especially with emoji, symbols, and spacing) may vary. Some prompts relied on precise formatting, and token boundaries might be interpreted differently depending on the model's tokenizer and backend configuration. This could lead to failures not from reasoning gaps but from input parsing inconsistencies.</p>
-    <p>No evaluation of explanation quality or confidence signals. The benchmark uses exact-match output to determine success and does not score models on how they arrived at the answer. Some models may have shown thoughtful reasoning but failed due to small formatting errors or trailing thoughts.</p>
-    <p>Despite these limitations, CipherBench v2 remains a focused probe into a specific kind of model intelligence. One that reveals how (and whether) a model chooses to engage with hidden structure when given no instructions at all.</p>
+    <li>Each prompt was only tested 5 times per model. While 5 attempts per prompt provides a meaningful signal, it still leaves room for statistical noise. A larger sample size might better capture performance variance, especially for models prone to randomness or inconsistency.</li>
+    <li>All models were tested through web or app interfaces, not APIs. This decision allowed uniform access across providers but also introduced variables like system prompts, latency behavior, and UI-level token processing. However, because all models were tested under their respective consumer-facing environments, this also acts as a practical equalizer, reflecting how each model performs as a product rather than a fine-tuned API tool.</li>
+    <li>Model responses may be affected by invisible system prompts or instructions. Since web/app interfaces include proprietary guardrails and formatting logic, some models may have been biased toward safe defaults or disallowed certain interpretations. These effects were outside the control of the benchmark but are a factor in how models behaved.</li>
+    <li>Tokenization behavior (especially with emoji, symbols, and spacing) may vary. Some prompts relied on precise formatting, and token boundaries might be interpreted differently depending on the model's tokenizer and backend configuration. This could lead to failures not from reasoning gaps but from input parsing inconsistencies.</li>
+    <li>No evaluation of explanation quality or confidence signals. The benchmark uses exact-match output to determine success and does not score models on how they arrived at the answer. Some models may have shown thoughtful reasoning but failed due to small formatting errors or trailing thoughts.</li>
+    <li>Despite these limitations, CipherBench v2 remains a focused probe into a specific kind of model intelligence. One that reveals how (and whether) a model chooses to engage with hidden structure when given no instructions at all.</li>
   </section>
 
+    <hr>
   
     <h2>Findings</h2>
 
@@ -170,6 +171,8 @@
   <p><strong>15. Grok 3 – 2% Overall Pass Rate</strong><br>2/20 prompts passed at least once.<br>Baseline silence. Passed Prompt 1 and 15 once, two of the most solved prompts, and nothing else. Never responded to subtlety, randomness, or inference. Offers a clear view of what zero engagement looks like.</p>
 </section>
 
+    <hr>
+
 <section>
   <h2>Why It Matters</h2>
     <p>CipherBench doesn’t ask, “Can the model solve this problem?” It asks, “Does the model realize there’s a problem to solve?”</p>
@@ -177,10 +180,14 @@
     <p>Some models try. Some models don’t. CipherBench v2 makes that visible.</p>
   </section>
 
+    <hr>
+
 <section>
   <h2>CipherBench v2 Prompts</h2>
   <p>Each prompt was given to the models exactly as written below, starting after the ellipsis.</p>
   <p>The 'Prompt X:' labels were not included in testing.</p>
+
+    <hr>
 
 <p>Prompt 1: 1E2R3U4T5U6F7 1E2H3T4 1R2O3F4 1A2I3G4L5A6T7S8O9N1</p>
 <p>Prompt 2: Noble owls soar toward azure landscapes, gracefully illuminating a future of radiant tomorrows, harmonizing endless fantasies under timeless, uplifting realms everlasting.</p>
@@ -192,41 +199,43 @@
 <p>Prompt 8: 28 30 38 40 2 24 14 18 2 12 30 36 40 16 10 12 42 40 42 36 10</p>
 <p>Prompt 9: STXYFQLNFKTWYMJKZYZWJ</p>
 <p>Prompt 10: 192024250617121406112023251310112625262310</p>
-<p>Prompt 11: 1️⃣9️⃣2️⃣0️⃣2️⃣4️⃣2️⃣5️⃣0️⃣6️⃣1️⃣7️⃣1️⃣2️⃣1️⃣4️⃣0️⃣6️⃣1️⃣1️⃣2️⃣0️⃣2️⃣3️⃣2️⃣5️⃣1️⃣3️⃣1️⃣0️⃣1️⃣1️⃣2️⃣6️⃣2️⃣5️⃣2️⃣6️⃣2️⃣3️⃣1️⃣0️⃣</p>
+<p class="wrap">Prompt 11: 1️⃣9️⃣2️⃣0️⃣2️⃣4️⃣2️⃣5️⃣0️⃣6️⃣1️⃣7️⃣1️⃣2️⃣1️⃣4️⃣0️⃣6️⃣1️⃣1️⃣2️⃣0️⃣2️⃣3️⃣2️⃣5️⃣1️⃣3️⃣1️⃣0️⃣1️⃣1️⃣2️⃣6️⃣2️⃣5️⃣2️⃣6️⃣2️⃣3️⃣1️⃣0️⃣</p>
 <p>Prompt 12: 1️⃣🍀9️⃣🌟2️⃣🔥0️⃣🍎2️⃣🎉4️⃣💎2️⃣🍭5️⃣🌀0️⃣🐾6️⃣🌈1️⃣😘7️⃣🤩1️⃣😇2️⃣🍩1️⃣🍪4️⃣🍓0️⃣🍉6️⃣🎶1️⃣🎸1️⃣🏆2️⃣🎲0️⃣🌹2️⃣🌻3️⃣💐2️⃣✨5️⃣💖1️⃣💕3️⃣😍1️⃣😜0️⃣😎1️⃣🎯1️⃣🍇2️⃣🍒6️⃣🍑2️⃣🥝5️⃣🍍2️⃣🥭6️⃣🍏2️⃣🍋3️⃣💥1️⃣🚀0️⃣</p>
-<p>Prompt 13: D14H15J19L20Q1W12E7R9T1Y6U15I18O20P8A5S6D21F20G21H18J5K</p>
+<p class="wrap">Prompt 13: D14H15J19L20Q1W12E7R9T1Y6U15I18O20P8A5S6D21F20G21H18J5K</p>
 <p>Prompt 14: 🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱 🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱 🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱 🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱 🌱 🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱 🌱🌱🌱🌱🌱🌱🌱 🌱🌱🌱🌱🌱🌱🌱🌱🌱 🌱 🌱🌱🌱🌱🌱🌱 🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱 🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱 🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱 🌱🌱🌱🌱🌱🌱🌱🌱 🌱🌱🌱🌱🌱 🌱🌱🌱🌱🌱🌱 🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱 🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱 🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱 🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱 🌱🌱🌱🌱🌱</p>
-<p>Prompt 15:
-N  O  S  T  A  L
-E                    G
-R                    I
-U                    A
-T                    F
-U                    O
-F    E   H   T   R</p>
-<p>Prompt 16:
-14  15  19  20  01  12
-05                         07
-18                          09
-21                          01
-20                         06
-21                          15
-06   05   08   20  18</p>
+<p>Prompt 15:</p>
+<p>N  O  S  T  A  L</p>
+<p>E                    G</p>
+<p>R                    I</p>
+<p>U                    A</p>
+<p>T                    F</p>
+<p>U                    O</p>
+<p>F    E   H   T   R</p>
+<p>Prompt 16:</p>
+<p>14  15  19  20  01  12</p>
+<p>05                         07</p>
+<p>18                          09</p>
+<p>21                          01</p>
+<p>20                         06</p>
+<p>21                          15</p>
+<p>06   05   08   20  18</p>
 <p>Prompt 17: 7x2 8+7 20-1 40/2 1x1 7+5 10-3 3x3 1/1 2x3 30/2 3x6 30-10 3+5 2+3 3x2 28-7 12+8 42/2 36/2 7-2</p>
 <p>Prompt 18: Evolving realms undergo transformations under futuristic energies, harnessing timeless reflections of forgotten artistry, igniting graceful luminous aspirations through subtle oscillations notably.</p>
 <p>Prompt 19: 1-2-3-4-5-6-7-8-9-10-11-12-13-14-13-12-11-10-9-8-7-6-5-4-3-2-1 1-2-3-4-5-6-7-8-9-10-11-12-13-14-15-14-13-12-11-10-9-8-7-6-5-4-3-2-1 1-2-3-4-5-6-7-8-9-10-11-12-13-14-15-16-17-18-19-18-17-16-15-14-13-12-11-10-9-8-7-6-5-4-3-2-1 1-2-3-4-5-6-7-8-9-10-11-12-13-14-15-16-17-18-19-20-19-18-17-16-15-14-13-12-11-10-9-8-7-6-5-4-3-2-1 1 1-2-3-4-5-6-7-8-9-10-11-12-11-10-9-8-7-6-5-4-3-2-1 1-2-3-4-5-6-7-6-5-4-3-2-1 1-2-3-4-5-6-7-8-9-8-7-6-5-4-3-2-1 1 1-2-3-4-5-6-5-4-3-2-1 1-2-3-4-5-6-7-8-9-10-11-12-13-14-15-14-13-12-11-10-9-8-7-6-5-4-3-2-1 1-2-3-4-5-6-7-8-9-10-11-12-13-14-15-16-17-18-17-16-15-14-13-12-11-10-9-8-7-6-5-4-3-2-1 1-2-3-4-5-6-7-8-9-10-11-12-13-14-15-16-17-18-19-20-19-18-17-16-15-14-13-12-11-10-9-8-7-6-5-4-3-2-1 1-2-3-4-5-6-7-8-7-6-5-4-3-2-1 1-2-3-4-5-4-3-2-1 1-2-3-4-5-6-5-4-3-2-1 1-2-3-4-5-6-7-8-9-10-11-12-13-14-15-16-17-18-19-20-21-20-19-18-17-16-15-14-13-12-11-10-9-8-7-6-5-4-3-2-1 1-2-3-4-5-6-7-8-9-10-11-12-13-14-15-16-17-18-19-20-19-18-17-16-15-14-13-12-11-10-9-8-7-6-5-4-3-2-1 1-2-3-4-5-6-7-8-9-10-11-12-13-14-15-16-17-18-19-20-21-20-19-18-17-16-15-14-13-12-11-10-9-8-7-6-5-4-3-2-1 1-2-3-4-5-6-7-8-9-10-11-12-13-14-15-16-17-18-17-16-15-14-13-12-11-10-9-8-7-6-5-4-3-2-1 1-2-3-4-5-4-3-2-1</p>
 
-<p>Prompt 20:
-N...A...A
-.O.T.L.I..
-..S....G...
-F....T......
-.O...H....
-..R....E...
-F......R...
-..U.U.E..
-....T.......</p>
+<p>Prompt 20:</p>
+<p>N...A...A</p>
+<p>.O.T.L.I..</p>
+<p>..S....G...</p>
+<p>F....T......</p>
+<p>.O...H....</p>
+<p>..R....E...</p>
+<p>F......R...</p>
+<p>..U.U.E..</p>
+<p>....T.......</p>
 </section>
+
+    <hr>
 
 <div class="footer">
     <p>Last updated April 8th, 2025</p>
