@@ -6,12 +6,13 @@
   <title>CipherBench v2</title>
   <style>
     body {
+      background-color: #1e1e1e;
+      color: #f5f5f5;
       font-family: system-ui, sans-serif;
       line-height: 1.6;
       max-width: 800px;
       margin: 2rem auto;
       padding: 0 1rem;
-      color: #222;
     }
     h1, h2, h3 {
       margin-top: 2.5rem;
@@ -20,16 +21,12 @@
     img {
       max-width: 100%;
       margin: 1rem 0;
+      border-radius: 4px;
     }
     hr {
       margin: 3rem 0;
       border: none;
-      border-top: 1px solid #ccc;
-    }
-    pre {
-      background: #f9f9f9;
-      padding: 1rem;
-      overflow-x: auto;
+      border-top: 1px solid #444;
     }
     ul {
       padding-left: 1.25rem;
@@ -38,324 +35,146 @@
       font-style: italic;
       margin: 1.5rem 0;
       padding-left: 1rem;
-      border-left: 3px solid #ccc;
+      border-left: 3px solid #888;
     }
     .footer {
       text-align: center;
       margin-top: 4rem;
       font-size: 0.95rem;
-      color: #555;
+      color: #aaa;
     }
     .footer em {
       display: block;
       margin-top: 0.5rem;
       font-style: italic;
     }
+    .centered {
+      text-align: center;
+    }
+    section {
+      margin-bottom: 2rem;
+    }
   </style>
 </head>
 <body>
-  <h1>CipherBench v2</h1>
-  <p>@SmokeAwayyy</p>
+  <h1 class="centered">CipherBench v2</h1>
+  <p class="centered"><a href="https://x.com/SmokeAwayyy" style="color:#ddd; text-decoration: none;">@SmokeAwayyy</a></p>
 
   <img src="/file-1ysvgko8iipiKV5n9d7sdi~2.PNG" alt="Main Bar Chart">
 
   <section>
-    <pre>
-Introducing CipherBench v2
-
-20 prompts to test implicit reasoning.
-
-No instructions. Just ciphers.
-
-—
-
-About the Benchmark
-
-CipherBench v2 continues the original goal of testing whether language models can recognize and solve hidden patterns without being told what to do.
-Where most benchmarks evaluate how well a model follows instructions, CipherBench focuses on the ability to notice and interpret structure that isn’t labeled. The kind of intelligence that surfaces when a model must infer that there’s something to solve at all. This includes:
-- Detecting structured signals embedded in natural formats
-- Identifying relationships without task framing
-- Inferring transformations based solely on the content itself
-
-—
-
-Methodology
-
-Each model was evaluated on 20 unique prompts. Five independent runs per prompt → 100 runs per model.
-
-All runs were:
-- Initiated in fresh sessions
-- Given only the prompt with no examples, no setup, and no hint that decoding was expected
-- Scored by exact-match evaluation, one correct output per prompt, one chance to get it right
-
-Models had no awareness that they were being tested. No retries, no clarifications. Each response reflects a single opportunity to recognize a hidden structure and produce the intended result.
-    </pre>
+    <p>Introducing CipherBench v2</p>
+    <p>20 prompts to test implicit reasoning.<br>No instructions. Just ciphers.</p>
+    <hr>
+    <h2>About the Benchmark</h2>
+    <p>CipherBench v2 continues the original goal of testing whether language models can recognize and solve hidden patterns without being told what to do. Where most benchmarks evaluate how well a model follows instructions, CipherBench focuses on the ability to notice and interpret structure that isn’t labeled. The kind of intelligence that surfaces when a model must infer that there’s something to solve at all.</p>
+    <ul>
+      <li>Detecting structured signals embedded in natural formats</li>
+      <li>Identifying relationships without task framing</li>
+      <li>Inferring transformations based solely on the content itself</li>
+    </ul>
+    <hr>
+    <h2>Methodology</h2>
+    <p>Each model was evaluated on 20 unique prompts. Five independent runs per prompt → 100 runs per model.</p>
+    <ul>
+      <li>Initiated in fresh sessions</li>
+      <li>Given only the prompt with no examples, no setup, and no hint that decoding was expected</li>
+      <li>Scored by exact-match evaluation, one correct output per prompt, one chance to get it right</li>
+    </ul>
+    <p>Models had no awareness that they were being tested. No retries, no clarifications. Each response reflects a single opportunity to recognize a hidden structure and produce the intended result.</p>
   </section>
 
   <img src="/file-6GefNy42GEEL48rTgMbrYC~2.PNG" alt="Unique Prompts Solved">
 
   <section>
-    <pre>
-Development Notes
-
-CipherBench v2 includes 20 prompts, doubling the size of v1 and expanding the range of reasoning types being tested. The design process involved reworking or removing earlier ideas that introduced unintended ambiguity, especially those involving letter jumbles with multiple plausible outputs.
-
-The result is a cleaner, more focused benchmark. Each prompt now tests a specific type of pattern recognition, structural inference, or multi-step cipher reasoning. Some use numbers. Some use formatting. Some are simple on the surface and hard underneath. But all ask the same thing: 
-Did the model notice the structure?
-
-—
-
-Scoring Criteria
-
-Each prompt in CipherBench v2 encodes a variation of the same target phrase: “Nostalgia for the Future”
-
-A model receives 1 point (Pass) if its output meets all of the following conditions:
-
-✅ Pass if:
-- The output clearly presents “Nostalgia for the Future” as the main or final conclusion
-It may be written as:
-- “Nostalgia for the Future” (with spaces)
-- Or “NOSTALGIAFORTHEFUTURE” (no spaces)
-- Capitalization, quotation marks, and ending punctuation are ignored
-- Explanations are optional. The phrase alone is sufficient for a pass if it stands as the core output
-
-❌ Fail if:
-- The phrase is mentioned only as a side detail or speculative option
-- It appears alongside multiple guesses or is not clearly prioritized
-- There are spelling mistakes, missing words, or altered structure
-- The phrase is written in reverse or rearranged word order
-- Only part of the phrase is returned (e.g., just “Nostalgia” or “Future”)
-- The model outputs a completely different or generic response
-- The model asks for clarification or more information instead of attempting an answer
-
-Models may solve however they choose: through reasoning, direct output, or pattern recognition. Only responses that clearly and completely present the phrase as their final or central answer are considered a pass.
-    </pre>
+    <h2>Development Notes</h2>
+    <p>CipherBench v2 includes 20 prompts, doubling the size of v1 and expanding the range of reasoning types being tested. The design process involved reworking or removing earlier ideas that introduced unintended ambiguity, especially those involving letter jumbles with multiple plausible outputs.</p>
+    <p>The result is a cleaner, more focused benchmark. Each prompt now tests a specific type of pattern recognition, structural inference, or multi-step cipher reasoning. Some use numbers. Some use formatting. Some are simple on the surface and hard underneath. But all ask the same thing: Did the model notice the structure?</p>
+    <hr>
+    <h2>Scoring Criteria</h2>
+    <p>Each prompt in CipherBench v2 encodes a variation of the same target phrase: <strong>“Nostalgia for the Future”</strong></p>
+    <p>A model receives 1 point (Pass) if its output meets all of the following conditions:</p>
+    <p>✅ Pass if:</p>
+    <ul>
+      <li>The output clearly presents “Nostalgia for the Future” as the main or final conclusion</li>
+      <li>It may be written as:
+        <ul>
+          <li>“Nostalgia for the Future” (with spaces)</li>
+          <li>“NOSTALGIAFORTHEFUTURE” (no spaces)</li>
+        </ul>
+      </li>
+      <li>Capitalization, quotation marks, and ending punctuation are ignored</li>
+      <li>Explanations are optional. The phrase alone is sufficient for a pass if it stands as the core output</li>
+    </ul>
+    <p>❌ Fail if:</p>
+    <ul>
+      <li>The phrase is mentioned only as a side detail or speculative option</li>
+      <li>It appears alongside multiple guesses or is not clearly prioritized</li>
+      <li>There are spelling mistakes, missing words, or altered structure</li>
+      <li>The phrase is written in reverse or rearranged word order</li>
+      <li>Only part of the phrase is returned (e.g., just “Nostalgia” or “Future”)</li>
+      <li>The model outputs a completely different or generic response</li>
+      <li>The model asks for clarification or more information instead of attempting an answer</li>
+    </ul>
+    <p>Models may solve however they choose: through reasoning, direct output, or pattern recognition. Only responses that clearly and completely present the phrase as their final or central answer are considered a pass.</p>
   </section>
 
   <img src="/file-NENWXt93Aka3KaabghSSM5~2.PNG" alt="Prompt-by-Prompt Heatmap">
 
   <section>
-    <pre>
-Limitations
-- Each prompt was only tested 5 times per model.
-While 5 attempts per prompt provides a meaningful signal, it still leaves room for statistical noise. A larger sample size might better capture performance variance, especially for models prone to randomness or inconsistency.
+    <h2>Limitations</h2>
+    <p>Each prompt was only tested 5 times per model. While 5 attempts per prompt provides a meaningful signal, it still leaves room for statistical noise. A larger sample size might better capture performance variance, especially for models prone to randomness or inconsistency.</p>
+    <p>All models were tested through web or app interfaces, not APIs. This decision allowed uniform access across providers but also introduced variables like system prompts, latency behavior, and UI-level token processing. However, because all models were tested under their respective consumer-facing environments, this also acts as a practical equalizer, reflecting how each model performs as a product rather than a fine-tuned API tool.</p>
+    <p>Model responses may be affected by invisible system prompts or instructions. Since web/app interfaces include proprietary guardrails and formatting logic, some models may have been biased toward safe defaults or disallowed certain interpretations. These effects were outside the control of the benchmark but are a factor in how models behaved.</p>
+    <p>Tokenization behavior (especially with emoji, symbols, and spacing) may vary. Some prompts relied on precise formatting, and token boundaries might be interpreted differently depending on the model's tokenizer and backend configuration. This could lead to failures not from reasoning gaps but from input parsing inconsistencies.</p>
+    <p>No evaluation of explanation quality or confidence signals. The benchmark uses exact-match output to determine success and does not score models on how they arrived at the answer. Some models may have shown thoughtful reasoning but failed due to small formatting errors or trailing thoughts.</p>
+    <p>Despite these limitations, CipherBench v2 remains a focused probe into a specific kind of model intelligence. One that reveals how (and whether) a model chooses to engage with hidden structure when given no instructions at all.</p>
+  </section>
 
-- All models were tested through web or app interfaces, not APIs.
-This decision allowed uniform access across providers but also introduced variables like system prompts, latency behavior, and UI-level token processing. However, because all models were tested under their respective consumer-facing environments, this also acts as a practical equalizer, reflecting how each model performs as a product rather than a fine-tuned API tool.
+    <hr>
+    <h2>Findings</h2>
+<h3>Overall Trends</h3>
+    <h3>Overall Trends</h3>
+    <ul>
+      <li><strong>Some models failed to engage with the cipher at all.</strong> A common failure mode, especially in lower-performing models, was to treat the input as ordinary text and respond with clarifying questions or unrelated summaries. However, many other failures were due to attempted reasoning that simply went off-track, showing incorrect chains of thought, partial decoding, or broken logic midway through multi-step transformations.</li>
+      <li><strong>Partial decoding was more common than full decoding.</strong> A frequent outcome was models extracting some part of the phrase, such as “Nostalgia” or “Future,” but not the whole target. This occurred often in prompts that combined position-based letter selection with additional logic.</li>
+      <li><strong>Multi-layer transformations proved most challenging.</strong> Prompts that required more than one reasoning step, such as interpreting a numerical system and then applying an additional transformation to that result, frequently caused breakdowns, despite receiving no hint that transformation or decoding was required.</li>
+      <li><strong>Letter position inference was a weak point.</strong> Several models could detect patterns like “first letters of each word,” but failed to correctly order or complete the output. Some models missed the last letters entirely, despite formatting clearly hinting at position-based logic.</li>
+      <li><strong>Prompts 5 and 6 remained completely unsolved, despite appearing simple.</strong> Both used long sequences of dates, and no model recognized the cipher. It’s possible that language models treat dates too rigidly, prioritizing historical or scheduling context rather than structural interpretation.</li>
+      <li><strong>Models struggle with non-language inputs presented as language.</strong> Emoji, symbols, and number-heavy layouts often triggered shallow pattern completion or literal interpretation. These rarely led to decoding attempts.</li>
+      <li><strong>High-confidence hallucinations were common in mid-tier models.</strong> o3-mini and others often returned thematic sentences with no connection to the cipher. This was especially common with poetic or abstract formatting.</li>
+      <li><strong>Some models “almost” read the encoded message.</strong> o3-mini-high often recognized individual transformations but failed to combine them. It could “see” the answer but not read it fluently.</li>
+      <li><strong>Grok 3 Thinking behaved like a reasoning engine in progress.</strong> It often decoded structural patterns but overshot the answer, trying to extend or continue the logic rather than return the target phrase.</li>
+      <li><strong>Gemini models were fast but shallow.</strong> They responded quickly but rarely attempted deep reasoning, often defaulting to surface-level completion.</li>
+      <li><strong>Only o1 pro demonstrated consistency and instinct.</strong> It responded correctly on all 5 attempts for 12 different prompts and was the only model to solve Prompt 18 (3rd hardest solved prompt). Its success came from recognition, not guessing.</li>
+      <li><strong>Prompt 14 was a subtle differentiator.</strong> It wasn’t impossibly hard, but quietly tricky. Only 3 models solved it—DeepSeek, Grok 3 Thinking, and QwQ-32B—suggesting a niche reasoning ability the others lacked.</li>
+    </ul>
 
-- Model responses may be affected by invisible system prompts or instructions.
-Since web/app interfaces include proprietary guardrails and formatting logic, some models may have been biased toward safe defaults or disallowed certain interpretations. These effects were outside the control of the benchmark but are a factor in how models behaved.
+    </section>
 
-- Tokenization behavior (especially with emoji, symbols, and spacing) may vary.
-Some prompts relied on precise formatting, and token boundaries might be interpreted differently depending on the model's tokenizer and backend configuration. This could lead to failures not from reasoning gaps but from input parsing inconsistencies.
+<section>
+  <h2>Model-Specific Notes</h2>
+  <p>1. <strong>o1 pro – 69% Overall Pass Rate</strong><br>15/20 prompts passed at least once.<br>The most alert and adaptable. o1 pro responded successfully to 15 of the 20 prompts, including every single one of the five hardest solved prompts, each passed by no more than 3 models total. The hardest prompt it solved was Prompt 18, the 3rd hardest solved prompt, which no other model was able to solve. It didn’t just notice something was off. It acted on it, even when no other model did. It responded correctly on all 5 attempts for 12 different prompts, showing not just broad recognition, but unusually high consistency once it engaged.</p>
+  <p>2. <strong>DeepSeek R1 – 27% Overall Pass Rate</strong><br>12/20 prompts passed at least once.<br>A wide but shallow reach. DeepSeek responded to 12 different prompts, placing it second in overall coverage. It was the only model to solve Prompt 4, the hardest prompt solved in the entire benchmark. It was also one of only 3 models to solve Prompt 14, the 2nd hardest solved prompt, even once. It responded correctly on all 5 attempts for only one prompt, with most other passes being single or scattered hits. This underscores its tendency to detect, but not reliably solve.</p>
+  <p>3. <strong>o3-mini-high – 26% Overall Pass Rate</strong><br>11/20 prompts passed at least once.<br>Fast reactions, clean instincts. It performed well on common-sense formats, especially those solved by many models. While it didn’t engage with the rarest or most complex patterns, it showed steady recognition across familiar structures and responded reliably when the format gave it something to hold onto.</p>
+  <p>4. <strong>Sonnet 3.7 Thinking – 25% Overall Pass Rate</strong><br>10/20 prompts passed at least once.<br>Came alive with clear layout. Passed several mid-range prompts (6–10 models passed), especially those with gridded or spatial formatting. It gave no sign of engaging with the hardest prompts, but when surface form provided clues, it responded well.</p>
+  <p>5. <strong>o3-mini – 23% Overall Pass Rate</strong><br>10/20 prompts passed at least once.<br>Almost identical to its sibling. Just behind o3-mini-high, it passed the same group of relatively accessible prompts, especially those solved by 10+ models. But like its sibling, it avoided the toughest prompts entirely, never passing one solved by fewer than 3.</p>
+  <p>6. <strong>o1 – 22% Overall Pass Rate</strong><br>10/20 prompts passed at least once.<br>Raw potential, scattered response. o1 picked up on a few tougher cues, including prompts passed by only 2–4 models, but lacked consistency. Some of its success hints at internal logic handling, but the model never fully stabilized across formats.</p>
+  <p>7. <strong>Gemini 2.5 Pro – 22% Overall Pass Rate</strong><br>9/20 prompts passed at least once.<br>Knows what it knows, and not much more. Most of its passes were in the top 3 easiest prompts (passed by 13–14 models). Beyond those, it rarely engaged. It delivered clean results when patterns were simple or familiar, but completely disengaged with complexity.</p>
+  <p>8. <strong>Grok 3 Thinking – 18% Overall Pass Rate</strong><br>8/20 prompts passed at least once.<br>Unpredictable sparks. This model passed a few prompts that most others didn’t. It was also one of just 3 models to solve Prompt 14, the 2nd hardest solved prompt. Its reaction seemed random, it missed several of the easiest prompts while unexpectedly solving a few rare ones. High variance, no strategy.</p>
+  <p>9. <strong>QwQ-Max-Preview – 18% Overall Pass Rate</strong><br>7/20 prompts passed at least once.<br>Noticing details, not quite solving. Passed a spread of prompts, mostly in the 6–10 solved range, suggesting decent pattern detection. Never reacted to the hardest cases but showed light engagement across formats that offered visible structure.</p>
+  <p>10. <strong>QwQ-32B Thinking – 16% Overall Pass Rate</strong><br>6/20 prompts passed at least once.<br>Recognized a few. Stayed quiet on the rest. This model locked onto a few mid-tier prompts, with most of its passes in the 3–9 model solved range. It was also one of only 3 models to pass Prompt 14, the 2nd hardest solved prompt, showing rare attention to a format nearly all models missed. Beyond that, it made little effort to reach further.</p>
+  <p>11. <strong>Gemini 2.0 FT – 15% Overall Pass Rate</strong><br>6/20 prompts passed at least once.<br>Strange instincts, but occasionally right. Mostly scattered passes, but notably one of only 3 models to respond to Prompt 17, one of the hardest. That lone outlier makes this model stand out despite its otherwise quiet profile.</p>
+  <p>12. <strong>GPT-4.5 – 13% Overall Pass Rate</strong><br>5/20 prompts passed at least once.<br>Did the minimum. Then stopped. It passed a few of the most solved prompts, then showed no further initiative. It never passed any of the more difficult ones and made no clear effort to decode anything unfamiliar.</p>
+  <p>13. <strong>GPT-4o – 8% Overall Pass Rate</strong><br>4/20 prompts passed at least once.<br>Didn’t realize anything was happening. Only passed prompts that 10+ models solved. No reaction to ambiguity, complexity, or formatting. It treated all input like neutral text, and missed every chance to go deeper.</p>
+  <p>14. <strong>Sonnet 3.7 – 5% Overall Pass Rate</strong><br>3/20 prompts passed at least once.<br>Glanced. Didn’t process. It passed only a few of the most obvious prompts and failed to register any beyond that. No indication of reasoning or pattern-seeking behavior. Entirely reactive, never interpretive.</p>
+  <p>15. <strong>Grok 3 – 2% Overall Pass Rate</strong><br>2/20 prompts passed at least once.<br>Baseline silence. Passed Prompt 1 and 15 once, two of the most solved prompts, and nothing else. Never responded to subtlety, randomness, or inference. Offers a clear view of what zero engagement looks like.</p>
 
-- No evaluation of explanation quality or confidence signals.
-The benchmark uses exact-match output to determine success and does not score models on how they arrived at the answer. Some models may have shown thoughtful reasoning but failed due to small formatting errors or trailing thoughts.
-
-- Despite these limitations, CipherBench v2 remains a focused probe into a specific kind of model intelligence. One that reveals how (and whether) a model chooses to engage with hidden structure when given no instructions at all.
-
-—
-
-Findings
-
-Overall Trends:
-- Some models failed to engage with the cipher at all.
- A common failure mode, especially in lower-performing models, was to treat the input as ordinary text and respond with clarifying questions or unrelated summaries. However, many other failures were due to attempted reasoning that simply went off-track, showing incorrect chains of thought, partial decoding, or broken logic midway through multi-step transformations.
-
-- Partial decoding was more common than full decoding.
- A frequent outcome was models extracting some part of the phrase, such as “Nostalgia” or “Future”, but not the whole target. This occurred often in prompts that combined position-based letter selection with additional logic.
-
-- Multi-layer transformations proved most challenging.
- Prompts that required more than one reasoning step, such as interpreting a numerical system and then applying an additional transformation to that result, frequently caused breakdowns, despite receiving no hint that transformation or decoding was required. Many models completed the first step but failed to carry the logic forward, either missing the second transformation entirely or applying it incorrectly. These multi-step reasoning failures were often the difference between partial and complete decoding.
-
-- Letter position inference was a weak point.
- Several models could detect patterns like “first letters of each word,” but failed to correctly order or complete the output. Some models missed the last letters entirely, despite formatting clearly hinting at position-based logic.
-
-- Prompts 5 and 6 remained completely unsolved, despite appearing simple.
- Both prompts used long sequences of dates, and no model recognized the cipher. It’s possible that language models treat dates too rigidly, prioritizing their historical or scheduling context rather than examining them structurally. This may prevent them from exploring date-based formats as encodings rather than as event metadata.
-
-- Models struggle with non-language inputs presented as language.
- Prompts that use emoji, symbols, or purely numerical layouts often trigger shallow pattern completion or literal interpretation. These formats fall outside most models’ default expectations for structured input and are rarely reinterpreted as encodings. This tendency may explain why symbol-heavy prompts, despite being tightly constructed, were consistently overlooked.
-
-- High-confidence hallucinations were common in mid-tier models.
- o3-mini and others often returned well-formed sentences that bore no relation to the target phrase. Prompt 20 saw o3-mini confidently invent a thematic sentence instead of decoding the hidden phrase. This happened more in prompts with abstract or poetic formatting.
-
-- Some models “almost” read the encoded message.
- A standout trend was models like o3-mini-high recognizing that individual components, such as equations or structured sequences, produced letters, yet failing to assemble those letters into the correct output. It was as if they could "see" the answer but not read it fluently.
-
-- Grok 3 Thinking often behaved like a reasoning engine in progress.
- It took noticeably longer to generate answers for some prompts, sometimes decoding symbolic formats but then overshooting the task, such as trying to predict the next symbol in a pattern rather than stopping once the phrase was found.
-
-- Gemini models responded quickly but lacked decoding depth.
- Their speed contrasted sharply with their reluctance to dive into any meaningful transformation, suggesting prioritization of efficiency over inference.
-
-- Very few models demonstrated consistency.
- Only o1 pro showed high success and consistent follow-through, responding correctly on all 5 attempts for 12 different prompts. Other models, like DeepSeek R1, showed breadth (many prompts passed once) but little reliability, only getting 5/5 on a single prompt.
-
-- Prompt 14 was a subtle differentiator.
- Despite being solved by just 3 models, Prompt 14 wasn’t impossibly hard. It was quietly tricky, likely due to its visual repetition and non-obvious structure. The models that got it right once (DeepSeek, Grok 3 Thinking, QwQ-32B) may have surfaced a narrow decoding intuition the others completely missed.
-
-- o1 pro stands out not just for performance, but for instinct.
- Its ability to respond to the hardest prompts with no external instruction or trigger is strong evidence that it developed an internal sense of “something to solve.” This is exactly the kind of inference CipherBench aims to expose.
-
-Model-Specific Notes:
-1. o1 pro – 69% Overall Pass Rate
-15/20 prompts passed at least once.
- The most alert and adaptable.
- o1 pro responded successfully to 15 of the 20 prompts, including every single one of the five hardest solved prompts, each passed by no more than 3 models total. The hardest prompt it solved was Prompt 18, the 3rd hardest solved prompt, which no other model was able to solve. It didn’t just notice something was off. It acted on it, even when no other model did.
- It responded correctly on all 5 attempts for 12 different prompts, showing not just broad recognition, but unusually high consistency once it engaged.
-
-2. DeepSeek R1 – 27% Overall Pass Rate
-12/20 prompts passed at least once.
- A wide but shallow reach.
- DeepSeek responded to 12 different prompts, placing it second in overall coverage. It was the only model to solve Prompt 4, the hardest prompt solved in the entire benchmark. It was also one of only 3 models to solve Prompt 14, the 2nd hardest solved prompt, even once.
- It responded correctly on all 5 attempts for only one prompt, with most other passes being single or scattered hits. This underscores its tendency to detect, but not reliably solve.
-
-3. o3-mini-high – 26% Overall Pass Rate
-11/20 prompts passed at least once.
- Fast reactions, clean instincts.
- It performed well on common-sense formats, especially those solved by many models. While it didn’t engage with the rarest or most complex patterns, it showed steady recognition across familiar structures and responded reliably when the format gave it something to hold onto.
-
-4. Sonnet 3.7 Thinking – 25% Overall Pass Rate
-10/20 prompts passed at least once.
- Came alive with clear layout.
- Passed several mid-range prompts (6–10 models passed), especially those with gridded or spatial formatting. It gave no sign of engaging with the hardest prompts, but when surface form provided clues, it responded well.
-
-5. o3-mini – 23% Overall Pass Rate
-10/20 prompts passed at least once.
- Almost identical to its sibling.
- Just behind o3-mini-high, it passed the same group of relatively accessible prompts, especially those solved by 10+ models. But like its sibling, it avoided the toughest prompts entirely, never passing one solved by fewer than 3.
-
-6. o1 – 22% Overall Pass Rate
-10/20 prompts passed at least once.
- Raw potential, scattered response.
- o1 picked up on a few tougher cues, including prompts passed by only 2–4 models, but lacked consistency. Some of its success hints at internal logic handling, but the model never fully stabilized across formats.
-
-7. Gemini 2.5 Pro – 22% Overall Pass Rate
-9/20 prompts passed at least once.
- Knows what it knows, and not much more.
- Most of its passes were in the top 3 easiest prompts (passed by 13–14 models). Beyond those, it rarely engaged. It delivered clean results when patterns were simple or familiar, but completely disengaged with complexity.
-
-8. Grok 3 Thinking – 18% Overall Pass Rate
-8/20 prompts passed at least once.
- Unpredictable sparks.
- This model passed a few prompts that most others didn’t. It was also one of just 3 models to solve Prompt 14, the 2nd hardest solved prompt. Its reaction seemed random, it missed several of the easiest prompts while unexpectedly solving a few rare ones. High variance, no strategy.
-
-9. QwQ-Max-Preview – 18% Overall Pass Rate
-7/20 prompts passed at least once.
- Noticing details, not quite solving.
- Passed a spread of prompts, mostly in the 6–10 solved range, suggesting decent pattern detection. Never reacted to the hardest cases but showed light engagement across formats that offered visible structure.
-
-10. QwQ-32B Thinking – 16% Overall Pass Rate
-6/20 prompts passed at least once.
- Recognized a few. Stayed quiet on the rest.
- This model locked onto a few mid-tier prompts, with most of its passes in the 3–9 model solved range. It was also one of only 3 models to pass Prompt 14, the 2nd hardest solved prompt, showing rare attention to a format nearly all models missed. Beyond that, it made little effort to reach further.
-
-11. Gemini 2.0 FT – 15% Overall Pass Rate
-6/20 prompts passed at least once.
- Strange instincts, but occasionally right.
- Mostly scattered passes, but notably one of only 3 models to respond to Prompt 17, one of the hardest. That lone outlier makes this model stand out despite its otherwise quiet profile.
-
-12. GPT-4.5 – 13% Overall Pass Rate
-5/20 prompts passed at least once.
- Did the minimum. Then stopped.
- It passed a few of the most solved prompts, then showed no further initiative. It never passed any of the more difficult ones and made no clear effort to decode anything unfamiliar.
-
-13. GPT-4o – 8% Overall Pass Rate
-4/20 prompts passed at least once.
- Didn’t realize anything was happening.
- Only passed prompts that 10+ models solved. No reaction to ambiguity, complexity, or formatting. It treated all input like neutral text, and missed every chance to go deeper.
-
-14. Sonnet 3.7 – 5% Overall Pass Rate
-3/20 prompts passed at least once.
- Glanced. Didn’t process.
- It passed only a few of the most obvious prompts and failed to register any beyond that. No indication of reasoning or pattern-seeking behavior. Entirely reactive, never interpretive.
-
-15. Grok 3 – 2% Overall Pass Rate
-2/20 prompts passed at least once.
- Baseline silence.
- Passed Prompt 1 and 15 once, two of the most solved prompts, and nothing else. Never responded to subtlety, randomness, or inference. Offers a clear view of what zero engagement looks like.
-
-—
-
-Why It Matters
-
-CipherBench doesn’t ask, “Can the model solve this problem?” It asks, “Does the model realize there’s a problem to solve?”
-This is a different kind of intelligence. It’s not about following instructions. It’s about recognizing structure that isn’t labeled, rules that aren’t announced, and transformations that must be inferred.
-Some models try. Some models don’t. CipherBench v2 makes that visible.
-
-Thanks for reading. 
-
----
-
-CipherBench v2 Prompts
-
-Each prompt was given to the models exactly as written below, starting after the ellipsis. The 'Prompt X:' labels were not included in testing.
-
-Prompt 1: 1E2R3U4T5U6F7 1E2H3T4 1R2O3F4 1A2I3G4L5A6T7S8O9N1
-
-Prompt 2: Noble owls soar toward azure landscapes, gracefully illuminating a future of radiant tomorrows, harmonizing endless fantasies under timeless, uplifting realms everlasting.
-
-Prompt 3: Golden echo whispers about nostalgia, sentimental yearning, satori utopia; motif motto for bright earth hope of guru next you ever evolve.
-
-Prompt 4: 04/14/25 04/15/25 04/19/25 04/20/25 04/01/25 04/12/25 04/07/25 04/09/25 04/01/25 04/06/25 04/15/25 04/18/25 04/20/25 04/08/25 04/05/25 04/06/25 04/21/25 04/20/25 04/21/25 04/18/25 04/05/25
-
-Prompt 5: April 14, 2025 April 15, 2025 April 19, 2025 April 20, 2025 April 1, 2025 April 12, 2025 April 7, 2025 April 9, 2025 April 1, 2025 April 6, 2025 April 15, 2025 April 18, 2025 April 20, 2025 April 8, 2025 April 5, 2025 April 6, 2025 April 21, 2025 April 20, 2025 April 21, 2025 April 18, 2025 April 5, 2025
-
-Prompt 6: March 17, 2014 July 4, 2015 January 12, 2019 October 23, 2020 February 9, 2001 August 15, 2012 May 27, 2007 December 5, 2009 April 18, 2001 June 2, 2006 September 30, 2015 November 11, 2018 August 20, 2020 July 14, 2008 March 6, 2005 May 21, 2006 April 3, 2021 December 25, 2020 January 8, 2021 October 16, 2018 February 22, 2005
-
-Prompt 7: .............. ............... ................... .................... . ............ ....... ......... . ...... ............... .................. .................... ........ ..... ...... ..................... .................... ..................... .................. .....
-
-Prompt 8: 28 30 38 40 2 24 14 18 2 12 30 36 40 16 10 12 42 40 42 36 10
-
-Prompt 9: STXYFQLNFKTWYMJKZYZWJ
-
-Prompt 10: 192024250617121406112023251310112625262310
-
-Prompt 11: 1️⃣9️⃣2️⃣0️⃣2️⃣4️⃣2️⃣5️⃣0️⃣6️⃣1️⃣7️⃣1️⃣2️⃣1️⃣4️⃣0️⃣6️⃣1️⃣1️⃣2️⃣0️⃣2️⃣3️⃣2️⃣5️⃣1️⃣3️⃣1️⃣0️⃣1️⃣1️⃣2️⃣6️⃣2️⃣5️⃣2️⃣6️⃣2️⃣3️⃣1️⃣0️⃣
-
-Prompt 12: 1️⃣🍀9️⃣🌟2️⃣🔥0️⃣🍎2️⃣🎉4️⃣💎2️⃣🍭5️⃣🌀0️⃣🐾6️⃣🌈1️⃣😘7️⃣🤩1️⃣😇2️⃣🍩1️⃣🍪4️⃣🍓0️⃣🍉6️⃣🎶1️⃣🎸1️⃣🏆2️⃣🎲0️⃣🌹2️⃣🌻3️⃣💐2️⃣✨5️⃣💖1️⃣💕3️⃣😍1️⃣😜0️⃣😎1️⃣🎯1️⃣🍇2️⃣🍒6️⃣🍑2️⃣🥝5️⃣🍍2️⃣🥭6️⃣🍏2️⃣🍋3️⃣💥1️⃣🚀0️⃣
-
-Prompt 13: D14H15J19L20Q1W12E7R9T1Y6U15I18O20P8A5S6D21F20G21H18J5K
-
-Prompt 14: 🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱 🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱 🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱 🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱 🌱 🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱 🌱🌱🌱🌱🌱🌱🌱 🌱🌱🌱🌱🌱🌱🌱🌱🌱 🌱 🌱🌱🌱🌱🌱🌱 🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱 🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱 🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱 🌱🌱🌱🌱🌱🌱🌱🌱 🌱🌱🌱🌱🌱 🌱🌱🌱🌱🌱🌱 🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱 🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱 🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱 🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱 🌱🌱🌱🌱🌱
-
-Prompt 15: 
-N  O  S  T  A  L
-E                    G
-R                    I
-U                    A
-T                    F
-U                    O
-F    E   H   T   R
-
-Prompt 16:
-14  15  19  20  01  12
-05                         07
-18                          09
-21                          01
-20                         06
-21                          15
-06   05   08   20  18
-
-Prompt 17: 7x2 8+7 20-1 40/2 1x1 7+5 10-3 3x3 1/1 2x3 30/2 3x6 30-10 3+5 2+3 3x2 28-7 12+8 42/2 36/2 7-2
-
-Prompt 18: Evolving realms undergo transformations under futuristic energies, harnessing timeless reflections of forgotten artistry, igniting graceful luminous aspirations through subtle oscillations notably.
-
-Prompt 19: 1-2-3-4-5-6-7-8-9-10-11-12-13-14-13-12-11-10-9-8-7-6-5-4-3-2-1 1-2-3-4-5-6-7-8-9-10-11-12-13-14-15-14-13-12-11-10-9-8-7-6-5-4-3-2-1 1-2-3-4-5-6-7-8-9-10-11-12-13-14-15-16-17-18-19-18-17-16-15-14-13-12-11-10-9-8-7-6-5-4-3-2-1 1-2-3-4-5-6-7-8-9-10-11-12-13-14-15-16-17-18-19-20-19-18-17-16-15-14-13-12-11-10-9-8-7-6-5-4-3-2-1 1 1-2-3-4-5-6-7-8-9-10-11-12-11-10-9-8-7-6-5-4-3-2-1 1-2-3-4-5-6-7-6-5-4-3-2-1 1-2-3-4-5-6-7-8-9-8-7-6-5-4-3-2-1 1 1-2-3-4-5-6-5-4-3-2-1 1-2-3-4-5-6-7-8-9-10-11-12-13-14-15-14-13-12-11-10-9-8-7-6-5-4-3-2-1 1-2-3-4-5-6-7-8-9-10-11-12-13-14-15-16-17-18-17-16-15-14-13-12-11-10-9-8-7-6-5-4-3-2-1 1-2-3-4-5-6-7-8-9-10-11-12-13-14-15-16-17-18-19-20-19-18-17-16-15-14-13-12-11-10-9-8-7-6-5-4-3-2-1 1-2-3-4-5-6-7-8-7-6-5-4-3-2-1 1-2-3-4-5-4-3-2-1 1-2-3-4-5-6-5-4-3-2-1 1-2-3-4-5-6-7-8-9-10-11-12-13-14-15-16-17-18-19-20-21-20-19-18-17-16-15-14-13-12-11-10-9-8-7-6-5-4-3-2-1 1-2-3-4-5-6-7-8-9-10-11-12-13-14-15-16-17-18-19-20-19-18-17-16-15-14-13-12-11-10-9-8-7-6-5-4-3-2-1 1-2-3-4-5-6-7-8-9-10-11-12-13-14-15-16-17-18-19-20-21-20-19-18-17-16-15-14-13-12-11-10-9-8-7-6-5-4-3-2-1 1-2-3-4-5-6-7-8-9-10-11-12-13-14-15-16-17-18-17-16-15-14-13-12-11-10-9-8-7-6-5-4-3-2-1 1-2-3-4-5-4-3-2-1
-
-Prompt 20: 
-N...A...A
-.O.T.L.I..
-..S....G...
-F....T......
-.O...H....
-..R....E...
-F......R...
-..U.U.E..
-....T.......
-
-    </pre>
+<section>
+  <h2>Why It Matters</h2>
+    <p>CipherBench doesn’t ask, “Can the model solve this problem?” It asks, “Does the model realize there’s a problem to solve?”</p>
+    <p>This is a different kind of intelligence. It’s not about following instructions. It’s about recognizing structure that isn’t labeled, rules that aren’t announced, and transformations that must be inferred.</p>
+    <p>Some models try. Some models don’t. CipherBench v2 makes that visible.</p>
   </section>
 
   <div class="footer">
