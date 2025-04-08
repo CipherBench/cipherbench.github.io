@@ -134,13 +134,15 @@
 
   <section>
     <h2>Limitations</h2>
+    <ul>
     <li>Each prompt was only tested 5 times per model. While 5 attempts per prompt provides a meaningful signal, it still leaves room for statistical noise. A larger sample size might better capture performance variance, especially for models prone to randomness or inconsistency.</li>
     <li>All models were tested through web or app interfaces, not APIs. This decision allowed uniform access across providers but also introduced variables like system prompts, latency behavior, and UI-level token processing. However, because all models were tested under their respective consumer-facing environments, this also acts as a practical equalizer, reflecting how each model performs as a product rather than a fine-tuned API tool.</li>
     <li>Model responses may be affected by invisible system prompts or instructions. Since web/app interfaces include proprietary guardrails and formatting logic, some models may have been biased toward safe defaults or disallowed certain interpretations. These effects were outside the control of the benchmark but are a factor in how models behaved.</li>
     <li>Tokenization behavior (especially with emoji, symbols, and spacing) may vary. Some prompts relied on precise formatting, and token boundaries might be interpreted differently depending on the model's tokenizer and backend configuration. This could lead to failures not from reasoning gaps but from input parsing inconsistencies.</li>
     <li>No evaluation of explanation quality or confidence signals. The benchmark uses exact-match output to determine success and does not score models on how they arrived at the answer. Some models may have shown thoughtful reasoning but failed due to small formatting errors or trailing thoughts.</li>
     <li>Despite these limitations, CipherBench v2 remains a focused probe into a specific kind of model intelligence. One that reveals how (and whether) a model chooses to engage with hidden structure when given no instructions at all.</li>
-  </section>
+</ul>  
+</section>
 
     <hr>
   
